@@ -1,3 +1,5 @@
 const app = require('./server');
 
-app.listen(3001);
+app.listen(3000, () => {
+    console.log('iniciando server');
+});
