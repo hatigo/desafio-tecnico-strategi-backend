@@ -7,50 +7,50 @@ const editarCliente = async (req, res) => {
     try {
         await clientesSchema.validate(req.body);
 
-        const cliente = await knex("clientes").where({id});
-        
-        if(cpf !== cliente.cpf){
-            const clienteExistente = await knex("clientes").where({cpf}).first();
+        const cliente = await knex('clientes').where({ id }).first();
 
-            if(clienteExistente){
+        if (cliente.cpf !== cpf) {
+            const clienteExistente = await knex('clientes').where({ cpf }).first();
+
+            if (clienteExistente) {
                 return res.status(400).json({
-                    error: "este cpf já está cadastrado"
-                })
-            }
-        }
+                    error: 'este cpf já está cadastrado'
+                });
+            };
+        };
 
-        if(email !== cliente.email){
-            const clienteExistente = await knex("clientes").where({email}).first();
+        if (cliente.email !== email) {
+            const clienteExistente = await knex('clientes').where({ email }).first();
 
-            if(clienteExistente){
+            if (clienteExistente) {
                 return res.status(400).json({
-                    error: "este email já está cadastrado"
-                })
-            }
-        }
+                    error: 'este email já está cadastrado'
+                });
+            };
+        };
 
         const newDadosDocliente = {
             nome,
             cpf,
             email,
             telefone
-        }
+        };
 
-        const clienteEditado = await knex("clientes").where({id}).update(newDadosDocliente);
+        const clienteEditado = await knex('clientes').where({ id }).update(newDadosDocliente);
 
-        if(clienteEditado === 0) {
+        if (clienteEditado === 0) {
             return res.status(400).json({
-                error: "não foi possivel fazer a edição do cadastro do cliente, tente novamente"
-            })
-        }
+                error: 'não foi possivel fazer a edição do cadastro do cliente, tente novamente'
+            });
+        };
 
         res.status(200).json({
-            success:"cadastro do cliente editado com sucesso"
-        })
+            success: 'cadastro do cliente editado com sucesso'
+        });
 
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
-}
+};
 
 module.exports = editarCliente;

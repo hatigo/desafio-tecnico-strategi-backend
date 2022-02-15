@@ -1,6 +1,5 @@
 const yup = require('./yup');
 
-
 const clientesSchema = yup.object().shape({
     nome: yup.string().required(),
     cpf: yup.string().required(),
@@ -8,6 +7,5 @@ const clientesSchema = yup.object().shape({
     telefone: yup.string().required()
 
 });
-
 
 module.exports = clientesSchema;

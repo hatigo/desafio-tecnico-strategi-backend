@@ -32,10 +32,9 @@ CREATE TABLE IF NOT EXISTS imoveis (
     valor money NOT NULL,
      comissao money NOT NULL,
     id_corretor integer NOT NULL,
-    id_cliente integer NOT NULL,
+    cliente varchar(255) NOT NULL,
     condicao_de_pagamento varchar(255),
     foreign key (id_corretor) references corretores(id),
-    foreign key (id_cliente) references clientes(id),
     foreign key (id_imovel) references imoveis(id)
     )
     
