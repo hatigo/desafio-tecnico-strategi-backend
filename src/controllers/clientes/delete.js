@@ -8,7 +8,7 @@ const deleteCliente = async (req, res) => {
 
         if (clienteDeletado === 0) {
             return res.status(400).json({
-                error: 'não foi possivel deletar o cadastro do cliente, tente novamente'
+                error: 'não foi possivel deletar o cadastro do cliente'
             });
         };
 

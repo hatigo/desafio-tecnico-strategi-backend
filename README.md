@@ -46,7 +46,7 @@ Tabela de conteúdos
 - [x] Edição do cadastro de cliente.
 - [x] Excluir cadastro do cliente.
 - [x] Consultar clientes.
-- [x] Consultar imoveis.
+- [x] Consultar imóveis.
 - [x] Cadastro de vendas.
 
 --- 
@@ -377,7 +377,7 @@ exemplo de resposta - error:
 ```json=
 [
     {
-	    "error" : "não foi possivel deletar o cadastro do cliente, tente novamente"
+	    "error" : "não foi possivel deletar o cadastro do cliente"
     }
 ]
 ```
